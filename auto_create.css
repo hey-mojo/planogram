@@ -1,0 +1,393 @@
+/* Utility classes*/
+
+.f-p-0 {
+  padding-inline: 0px;
+}
+.f-p-1 {
+  padding-inline: 1px;
+}
+.f-p-2 {
+  padding-inline: 2px;
+}
+.f-p-4 {
+  padding-inline: 4px;
+}
+.f-p-5 {
+  padding-inline: 5px;
+}
+.f-p-6 {
+  padding-inline: 6px;
+}
+.f-p-7 {
+  padding-inline: 7px;
+}
+.chosen {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+  background: transparent;
+}
+.opacity-0 {
+  opacity: 0 !important;
+}
+
+/* End utility classes*/
+
+.fridge {
+  --transition-time: 0.35s;
+  max-width: var(--fridge-width);
+  background-color: #ccc;
+  margin: 50px auto;
+}
+/* Fridge header styling*/
+.fridge-layout {
+  position: relative;
+}
+.fridge-header {
+  height: 150px;
+  background-color: #0d6efd;
+  padding: 20px 40px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.fridge-header-info {
+  flex: 1;
+  display: flex;
+}
+
+.fridge-header-display {
+  margin-inline: 40px 20px;
+  padding: 10px 15px;
+  width: 70%;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #404040;
+  display: flex;
+  flex-direction: column;
+}
+.fridge-header-display .product-total-price {
+  margin-top: auto;
+  font-size: 1.8rem;
+  opacity: 1;
+  transition: opacity var(--transition-time) linear;
+  display: flex;
+  align-items: last baseline;
+  gap: 0.5em;
+}
+.fridge-header-display .product-total-price .stock-group {
+  width: 100%;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+.fridge-header-display .product-total-price .inc-vat {
+  font-size: 0.9rem;
+  max-width: 10ch;
+  line-height: 1;
+}
+.fridge-header-display .product-total-price .pack-uom {
+  font-size: 0.9rem;
+}
+.fridge-header-display .product-total-price .in-stock {
+  font-size: 0.9rem;
+}
+.fridge-header-display .product-name {
+  overflow: hidden;
+  line-height: 1.4em;
+  max-height: 2.8em;
+  opacity: 1;
+  transition: opacity var(--transition-time) linear;
+}
+
+.fridge-header-buttons {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantity-count {
+  display: flex;
+  gap: 15px;
+  text-align: center;
+  height: 40px;
+  display: none;
+}
+.quantity-count button {
+  background-color: rgb(0, 182, 206);
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  font-size: 2.8rem;
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.quantity-count button::selection {
+  background-color: transparent;
+}
+.quantity-count input {
+  max-width: 50px;
+  text-align: center;
+  border: none;
+  font-size: 1.7rem;
+  color: #f00;
+  background-color: #222;
+}
+.quantity-count input::selection {
+  background-color: rgba(255, 0, 0, 0.5);
+  color: #fff;
+}
+.fridge-header-buttons button {
+  background-color: var(--bs-teal);
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 10px 20px;
+  width: 100%;
+  text-decoration: none;
+  border: none;
+}
+.fridge-header-buttons .clear {
+  background-color: var(--bs-red);
+}
+.fridge-header-buttons button:hover {
+  background-color: var(--bs-pink);
+}
+.add-basket:disabled {
+  background-color: #aaa;
+}
+.add-basket:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.fridge-header img {
+  filter: brightness(0) invert(1);
+}
+/* Fridge body styling*/
+.fridge-body {
+  outline: 2px solid #808080;
+  outline-offset: -2px;
+}
+.body-frame {
+  padding: 40px;
+  width: 100%;
+  height: 100%;
+}
+.body-inner {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 0 2px #808080;
+  outline: 2px solid #808080;
+  outline-offset: 6px;
+}
+.shelf-s .shelf-body-s {
+  height: clamp(160px, 22vw, 230px);
+}
+.inner-shelf .shelf-body-s {
+  height: calc(var(--fridge-width) - 720px);
+}
+.shelf-s .shelf-body-m {
+  height: 300px;
+}
+.shelf-s .shelf-body-l {
+  height: 350px;
+}
+.shelf-body {
+  padding: 10px 5px 5px;
+  margin: 0;
+  display: grid;
+  gap: 5px;
+  align-items: end;
+  justify-items: center;
+  position: relative;
+}
+.shelf-body::after {
+  content: "";
+  width: 100%;
+  height: 25px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.shelf-body li {
+  list-style: none;
+  z-index: 1;
+}
+.shelf-body button {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+.inner-shelf .shelf-body {
+  grid-template-columns: repeat(var(--shelf-body-columns), 1fr);
+}
+.shelf-body img {
+  max-height: 100%;
+  max-width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.shelf-body button:focus-visible {
+  filter: drop-shadow(0 0 15px rgba(0, 102, 255, 1));
+  background: transparent;
+  outline: 0;
+}
+
+.shelf-footer {
+  background-color: #eee;
+  height: 50px;
+  padding: 10px 5px;
+  display: grid;
+  gap: 5px;
+  position: relative;
+}
+
+.add-shelf-wrapper {
+  height: 60px;
+  width: 100%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.add-shelf-wrapper button {
+  background-color: var(--bs-teal);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+}
+.add-shelf-wrapper .clear {
+  background-color: var(--bs-red);
+}
+.add-shelf-wrapper button:hover {
+  background-color: var(--bs-pink);
+}
+.inner-shelf .shelf-footer {
+  grid-template-columns: repeat(var(--shelf-footer-columns), 1fr);
+}
+.shelf-input {
+  background-color: #fff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  padding-inline: 5px;
+  text-align: center;
+  border: none;
+}
+section.inner-shelf .shelf-input {
+  grid-column: var(--footer-grid-column);
+}
+
+/* Fridge footer styling*/
+.fridge-footer {
+  height: 200px;
+  background-color: #444;
+}
+
+@media only screen and (max-width: 768px) {
+  .fridge {
+    margin-block: 0;
+  }
+  .fridge-footer {
+    height: 100px;
+    background-color: #444;
+  }
+  .shelf-s .shelf-body-s {
+    height: clamp(70px, 22vw, 230px);
+  }
+  .f-p-1 {
+    padding: 0;
+  }
+  .f-p-2 {
+    padding-inline: 1px;
+  }
+  .fridge-header {
+    position: relative;
+  }
+  .shelf-input {
+    font-size: 1rem;
+    height: 25px;
+    width: 25px;
+    margin: auto;
+    padding-inline: 2px;
+  }
+  .shelf-footer {
+    height: 35px;
+    padding-block: 5px;
+  }
+  .fridge-header-logo {
+    display: none;
+  }
+  .fridge-header-buttons button,
+  .add-shelf-wrapper button {
+    font-size: clamp(0.7rem, 3vw, 1rem);
+    padding: 7px 10px;
+  }
+  .fridge-header {
+    padding: 20px;
+  }
+  .fridge-header-display {
+    margin-left: 0;
+  }
+  .desktop:has(.planogram) {
+    display: revert;
+  }
+  .mobile:has(.planogram) {
+    display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .shelf-body li {
+    margin-bottom: 0;
+  }
+  .shelf-body::after {
+    height: 15px;
+  }
+  .body-frame {
+    padding: 20px;
+  }
+  .shelf-input {
+    font-size: 0.8rem;
+    height: 20px;
+    width: 20px;
+    margin: auto;
+    padding-inline: 1px;
+  }
+  .shelf-body {
+    gap: 3px;
+  }
+  .shelf-footer {
+    gap: 1px;
+  }
+  /*.fridge-header-display .product-total-price .in-stock,
+  .fridge-header-display .product-total-price .pack-uom,*/
+  .fridge-header-display .product-total-price .inc-vat {
+    font-size: 0.6rem;
+    line-height: 1;
+  }
+  .fridge-header-display .product-total-price {
+    font-size: 1.3rem;
+  }
+}
+.fridge-header-buttons {
+  display: none;
+}
+.fridge-header-display {
+  width: 100%;
+  margin-inline: 0;
+}
